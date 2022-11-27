@@ -1,0 +1,4 @@
+Focus on testcase not on writing code
+Let it be any type of data int, double, float our pointer will be storing only the address, this could be understand when we will be checking sizeof of all the data types pointers, it will be always same 
+
+If there is a pointer which is trying to approach kind of memory whcih does not exists , then we get segmentation fault error
