@@ -78,7 +78,7 @@ int main()
     six->data = 6;
     six->next = NULL;
 
-    Node*res = kreverse(head,3);
+    Node*res = kreverse(head,2);
     print(res);
 
 

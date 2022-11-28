@@ -27,7 +27,7 @@ void reverse(Node**head_ref)
     while (curr!=NULL)
     {
        Node*temp = curr->next;
-       curr->next = prev; //breaking old old current link
+       curr->next = prev; //breaking old  current link and pointing towards backward one 
        prev = curr;
        curr = temp; 
     }
