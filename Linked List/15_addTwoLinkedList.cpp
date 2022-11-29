@@ -14,26 +14,28 @@ public:
     }
 };
 
-Node *reverseLL(Node *&head_ref)
+Node *reverse(Node *head)
 {
-    Node *curr = head_ref;
+
+    Node *curr = head;
     Node *prev = NULL;
+    Node *next = NULL;
+
     while (curr != NULL)
     {
-        Node *temp = curr->next;
+        next = curr->next;
         curr->next = prev;
         prev = curr;
-        curr = temp;
+        curr = next;
     }
-
     return prev;
 }
 
-void insertAtTail(Node *&head, Node *&tail, int val)
+void insertAtTail(struct Node *&head, struct Node *&tail, int val)
 {
-    Node *temp = new Node(val);
 
-    // empty lists
+    Node *temp = new Node(val);
+    // empty list
     if (head == NULL)
     {
         head = temp;
@@ -50,58 +52,50 @@ void insertAtTail(Node *&head, Node *&tail, int val)
 Node *add(Node *&first, Node *&second)
 {
     int carry = 0;
+
     Node *ansHead = NULL;
     Node *ansTail = NULL;
-    while (first != NULL && second != NULL)
+
+    while (first != NULL || second != NULL || carry != 0)
     {
-        int sum = carry + first->data + second->data;
+
+        int val1 = 0;
+        if (first != NULL)
+            val1 = first->data;
+
+        int val2 = 0;
+        if (second != NULL)
+            val2 = second->data;
+
+        int sum = carry + val1 + val2;
 
         int digit = sum % 10;
 
-        Node *temp = new Node(digit);
+        // create node and add in answer Linked List
         insertAtTail(ansHead, ansTail, digit);
 
         carry = sum / 10;
-    }
+        if (first != NULL)
+            first = first->next;
 
-    while (first != NULL)
-    {
-        int sum = carry + first->data;
-        int digit = sum % 10;
-        // create node and add in answer linked lists
-        insertAtTail(ansHead, ansTail, digit);
-        carry = sum / 10;
+        if (second != NULL)
+            second = second->next;
     }
-
-    while (second != NULL)
-    {
-        int sum = carry + second->data;
-        int digit = sum % 10;
-        // create node and add in answer linked lists
-        insertAtTail(ansHead, ansTail, digit);
-        carry = sum / 10;
-    }
-
-    while (carry != 0)
-    {
-        int sum = carry;
-        int digit = sum % 10;
-        insertAtTail(ansHead, ansTail, digit);
-        carry = sum / 10;
-    }
-
     return ansHead;
 }
 
 Node *addTwoLists(Node *first, Node *second)
 {
 
-    // Step 1 - reverse input LL
-    first = reverseLL(first);
-    second = reverseLL(second);
+    // step 1 -  reverse input LL
+    first = reverse(first);
+    second = reverse(second);
 
-    // Step 2 - add 2 LL
+    // step2 - add 2 LL
     Node *ans = add(first, second);
+
+    // step 3
+    ans = reverse(ans);
 
     return ans;
 }
@@ -141,7 +135,7 @@ int main()
     fourth2->next = fifth2;
     fifth2->next = NULL;
 
-    Node*res = addTwoLists(head1,head2);
+    Node *res = addTwoLists(head1, head2);
     print(res);
 
     return 0;
