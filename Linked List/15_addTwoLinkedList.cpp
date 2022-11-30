@@ -111,29 +111,23 @@ void print(Node *&n)
 
 int main()
 {
-    Node *head1 = new Node(1);
-    Node *second1 = new Node(2);
-    Node *third1 = new Node(2);
-    Node *fourth1 = new Node(0);
-    Node *fifth1 = new Node(1);
+    Node *head1 = new Node(9);
+    Node *second1 = new Node(5);
+    Node *third1 = new Node(0);
+    Node *fourth1 = new Node(6);
 
     head1->next = second1;
     second1->next = third1;
     third1->next = fourth1;
-    fourth1->next = fifth1;
-    fifth1->next = NULL;
+    fourth1->next = NULL;
 
-    Node *head2 = new Node(1);
-    Node *second2 = new Node(2);
-    Node *third2 = new Node(2);
-    Node *fourth2 = new Node(0);
-    Node *fifth2 = new Node(1);
+    Node *head2 = new Node(2);
+    Node *second2 = new Node(5);
+    Node *third2 = new Node(1);
 
     head2->next = second2;
     second2->next = third2;
-    third2->next = fourth2;
-    fourth2->next = fifth2;
-    fifth2->next = NULL;
+    third2->next = NULL;
 
     Node *res = addTwoLists(head1, head2);
     print(res);

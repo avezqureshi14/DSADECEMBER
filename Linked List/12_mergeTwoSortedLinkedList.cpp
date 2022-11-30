@@ -10,7 +10,7 @@ public:
 };
 /*
 
-//Merge Two SOrted Linked lists
+//Merge Two Sorted Linked lists
 1] If l1 is NULL return l2 and if l2 is NULL return l1  
 2] Check whether l1 > l2 , if yes then swap l1 and l2
 3] Point result Node to the l1

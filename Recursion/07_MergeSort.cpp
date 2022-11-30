@@ -1,7 +1,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-//Do application  of merge sort from GFG it is very very important fro placements 
+//Do application  of merge sort from GFG it is very very important for placements 
 void merge(int arr[], int s, int e){
     int mid = s + (e - s) / 2;
 
@@ -12,42 +12,42 @@ void merge(int arr[], int s, int e){
     int *second = new int[len2];
 
     //copy values
-    int mainArrayIndex = s;
+    int k = s;
     for (int i = 0; i < len1; i++)
     {
-        first[i] = arr[mainArrayIndex++];
+        first[i] = arr[k++];
     }
 
-    mainArrayIndex = mid + 1;
+    k = mid + 1;
     for (int i = 0; i < len2; i++)
     {
-        second[i] = arr[mainArrayIndex++];
+        second[i] = arr[k++];
     }
     
     //merge 2 sorted arrays
-    int index1 = 0;
-    int index2 = 0;
-    mainArrayIndex = s;
+    int i = 0;
+    int j = 0;
+    k = s;
 
-    while (index1 < len1 && index2 < len2)
+    while (i < len1 && j < len2)
     {
-      if (first[index1] < second[index2])
+      if (first[i] < second[j])
       {
-        arr[mainArrayIndex++] = first[index1++];
+        arr[k++] = first[i++];
       }
       else{
-        arr[mainArrayIndex++] = second[index2++];
+        arr[k++] = second[j++];
       }
          
     }
 
-    while (index1 < len1)
+    while (i < len1)
     {
-        arr[mainArrayIndex++] = first[index1++];
+        arr[k++] = first[i++];
     }
-    while (index2 < len2)
+    while (j < len2)
     {
-        arr[mainArrayIndex++] = second[index2++];
+        arr[k++] = second[j++];
     }
     
     

@@ -1,51 +1,58 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <stack>
 using namespace std;
 
-bool isValid(string str)
+bool isValidParenthesis(string expression)
 {
     stack<char> s;
-    char ch;
-    for (int i = 0; i < str.length(); i++)
+
+    for (int i = 0; i < expression.length(); i++)
     {
-        ch = str[i];
+        char ch = expression[i];
+        // if opening bracket, stack push
+        // if close bracket, stackTop check and Pop
+
         if (ch == '(' || ch == '{' || ch == '[')
         {
             s.push(ch);
         }
-        else{
+        else
+        {
+            // for closing bracket
             if (!s.empty())
             {
                 char top = s.top();
-                if ((ch == ')' && top == '(') || (ch == '}' && top == '{') || (ch == ']' && top == '[') )
+                if ((ch == ')' && top == '(') ||
+                    (ch == '}' && top == '{') ||
+                    (ch == ']' && top == '['))
                 {
                     s.pop();
                 }
-                else{
+                else
+                {
                     return false;
                 }
-                
             }
-            else{
+            else
+            {
                 return false;
             }
-            
         }
     }
-
     if (s.empty())
     {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
 
 int main()
 {
-    string s = "{{}}";
-    bool res = isValid(s);
+    string s = "({}}";
+    bool res = isValidParenthesis(s);
     if (res == true)
     {
         cout << "Balanced" << endl;

@@ -32,7 +32,7 @@ Node*kreverse(Node* &head, int k){
     //step-2 Recursion dekhenga 
     if (next != NULL)
     {
-        head -> next = kreverse(next,k);
+        head -> next = kreverse(next,k); //keeping the linked list joined v imp step
     }
 
     //step-3 Return head of reversed list

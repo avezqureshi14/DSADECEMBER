@@ -5,6 +5,7 @@ public:
     int data;
     Node*next;
 };
+
 void print(Node*n)
 {
     while (n!=NULL)

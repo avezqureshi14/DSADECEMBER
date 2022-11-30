@@ -39,8 +39,10 @@ void deleteNode(Node* &head, int key){
     else{
         while (temp1 != NULL && temp1->data != key)
         {
-            temp2 = temp1;
+            temp2 = temp1; 
             temp1 = temp1->next;
+            // 1       --> 2        --> 3 (if temp1 = key)
+            // temp2      temp1
         }
 
         //if key dosen't exists in the linked list 
