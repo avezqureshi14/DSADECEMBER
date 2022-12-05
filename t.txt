@@ -2,3 +2,9 @@ Focus on testcase not on writing code
 Let it be any type of data int, double, float our pointer will be storing only the address, this could be understand when we will be checking sizeof of all the data types pointers, it will be always same 
 
 If there is a pointer which is trying to approach kind of memory whcih does not exists , then we get segmentation fault error
+
+To rotate an array 
+1] Dont forget to make temp as the same size of the given array/vector
+2] temp[(i + k) % nums.size()] = nums[i];
+
+At the end of every string and char array this is present '\0'

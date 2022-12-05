@@ -2,61 +2,77 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isValid(string str)
+bool isValid(char ch)
 {
-    stack<char> s;
-    char ch;
-    for (int i = 0; i < str.length(); i++)
-    {
-        ch = str[i];
-        if (ch == '(' || ch == '{' || ch == '[')
-        {
-            s.push(ch);
-        }
-        else{
-            if (!s.empty())
-            {
-                char top = s.top();
-                if ((ch == ')' && top == '(') || (ch == '}' && top == '{') || (ch == ']' && top == '[') )
-                {
-                    s.pop();
-                }
-                else{
-                    return false;
-                }
-                
-            }
-            else{
-                return false;
-            }
-            
-        }
-    }
-
-    if (s.empty())
+    if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9'))
     {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
 
-int main()
+char toLower(char ch)
 {
-    string s = "{{}}";
-    bool res = isValid(s);
-    if (res == true)
+    if ((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9'))
     {
-        cout << "Balanced" << endl;
+        return ch;
     }
     else
     {
-        cout << "Unbalanced" << endl;
+        char temp = ch - 'A' + 'a';
+        return temp;
+    }
+}
+
+bool isPalindrome(string s){
+    int n = s.size();
+    int start = 0;
+    int end = n - 1;
+    while (start <= end)
+    {
+        if (s[start] != s[end])
+        {
+            return false;
+        }
+        else{
+            start++;
+            end--;
+        }
+        
+    }
+    return true;
+}
+//main function
+bool CheckPalindrome(string s){
+    string str = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (isValid(s[i]))
+        {
+            str.push_back(s[i]);
+        }
+    }
+    for (int i = 0; i < s.length(); i++)
+    {
+        str[i] = toLower(str[i]);
+    }
+
+    return isPalindrome(str);
+        
+}
+
+int main()
+{
+    string s = "rac$ a C=ar";
+    if( CheckPalindrome(s) == true ){
+        cout<<"The given string is Palindrome";
+    }
+    else{
+        cout<<"The given string is not a Palindrome";
     }
 
     return 0;
 }
-
-// Time COmplexity O(n)
-// Space COmplexity O(n)

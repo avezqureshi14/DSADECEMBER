@@ -1,6 +1,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
+
 void rotate(vector<int> &nums, int k)
 {
     vector<int> temp(nums.size());

@@ -20,8 +20,7 @@ void MergeSorted(vector<int> &nums1, int m, vector<int> &nums2, int n)
             j--;
             k--;
         }
-    }
-
+    }      
     while (i >= 0)
     {
         nums1[k--] = nums1[i--];

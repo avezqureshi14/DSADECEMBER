@@ -63,23 +63,21 @@ int Bettermajority1(vector<int> &nums)
 
 int main()
 {
-    vector<int> nums;
+   vector<int>nums;
+    nums.push_back(7);
     nums.push_back(7);
     nums.push_back(7);
     nums.push_back(8);
-    nums.push_back(7);
     nums.push_back(8);
+    nums.push_back(8);
+    nums.push_back(7);
+    nums.push_back(7);
+    nums.push_back(1);
     nums.push_back(1);
     nums.push_back(8);
-    nums.push_back(7);
-    nums.push_back(8);
     nums.push_back(8);
     nums.push_back(7);
     nums.push_back(7);
-    nums.push_back(8);
-    nums.push_back(8);
-    nums.push_back(8);
-    nums.push_back(8);
     cout << "Majority Element is " << Optimalmajority1(nums);
 
     return 0;
